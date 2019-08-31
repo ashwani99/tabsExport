@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+
+        body {
+            background-color: yellow;
+        }
+
+        .container {
+            padding: 10px;
+            min-width: 200px;
+            text-align: center;
+        }
+
+        .btn {
+            color: #fff !important;
+            text-transform: uppercase;
+            text-decoration: none;
+            background: #434343;
+            padding: 20px;
+            border-radius: 5px;
+            display: inline-block;
+            border: none;
+            transition: all 0.4s ease 0s;
+            cursor: pointer;
+            width: 100%;
+            margin-bottom: 5px;
+        }
+
+        .btn:last-child {
+            margin-bottom: 0;
+        }
+
+        .btn:hover {
+            background: #ed3330;
+            letter-spacing: 1px;
+            -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+            -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+            box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
+            transition: all 0.4s ease 0s;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <button id="export-json-btn" class="btn option">
+            Export as JSON
+        </button>
+        <button id="copy-clipboard-btn" class="btn option">
+            Copy to Clipboard
+        </button>
+        <input id="import-input" type="file" style="display: none">
+        <button id="import-json-btn" class="btn option">
+            Import from JSON
+        </button>
+    </div>
+
+    <script src="populate.js"></script>
+</body>
+</html>
