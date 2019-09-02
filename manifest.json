@@ -9,14 +9,14 @@
     },
     "browser_action": {
         "default_title": "Tabs Export",
-        "default_icon": "images/tabs_export32.png",
+        "default_icon": "icons/tabs_export32.png",
         "default_popup": "popup.html"
     },
     "permissions": ["declarativeContent", "tabs", "notifications"],
     "icons": {
-        "16": "images/tabs_export16.png",
-        "32": "images/tabs_export32.png",
-        "64": "images/tabs_export64.png",
-        "128": "images/tabs_export128.png"
+        "16": "icons/tabs_export16.png",
+        "32": "icons/tabs_export32.png",
+        "64": "icons/tabs_export64.png",
+        "128": "icons/tabs_export128.png"
     }
 }

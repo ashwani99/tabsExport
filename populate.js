@@ -10,7 +10,7 @@ function exportLinks() {
         downloadObjectAsJSON(data, 'links', function() {
             chrome.notifications.create({
                 type: 'basic',
-                iconUrl: 'images/tabs_export16.png',
+                iconUrl: 'icons/tabs_export16.png',
                 title: 'TabsExport',
                 message: 'Successfully exported as JSON!'
             });
@@ -23,7 +23,7 @@ function copyLinks() {
         copyToClipBoard(data.links, function() {
             chrome.notifications.create({
                 type: 'basic',
-                iconUrl: 'images/tabs_export16.png',
+                iconUrl: 'icons/tabs_export16.png',
                 title: 'TabsExport',
                 message: 'Links copied!'
             });
@@ -46,7 +46,7 @@ function importLinks() {
                     openLinksInTabs(contentAsJSON.links, function() {
                         chrome.notifications.create({
                             type: 'basic',
-                            iconUrl: 'images/tabs_export16.png',
+                            iconUrl: 'icons/tabs_export16.png',
                             title: 'TabsExport',
                             message: `Successfully imported ${contentAsJSON.links.length} links!`
                         });
