@@ -42,20 +42,33 @@
             transition: all 0.4s ease 0s;
         }
 
+        .hidden {
+            display: none;
+        }
+
     </style>
 </head>
 <body>
     <div class="container">
-        <button id="export-json-btn" class="btn option">
-            Export as JSON
-        </button>
-        <button id="copy-clipboard-btn" class="btn option">
-            Copy to Clipboard
-        </button>
-        <input id="import-input" type="file" style="display: none">
-        <button id="import-json-btn" class="btn option">
-            Import from JSON
-        </button>
+        <div id="options">
+            <button id="export-json-btn" class="btn">
+                Export as JSON
+            </button>
+            <button id="copy-clipboard-btn" class="btn">
+                Copy to Clipboard
+            </button>
+            <button id="import-json-btn" class="btn">
+                Import tabs
+            </button>
+        </div>
+
+        <div id="form-container" class="hidden">
+            <form id="import-form">
+                <textarea id="links-box" placeholder="Put your JSON here" cols="30" rows="10"></textarea>
+                <button id="import-button" class="btn">Open Tabs</button>
+                <button id="back-import" class="btn">Back</button>
+            </form>
+        </div>
     </div>
 
     <script src="populate.js"></script>

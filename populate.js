@@ -31,37 +31,28 @@ function copyLinks() {
     });
 }
 
+
 function importLinks() {
-    const importInput = document.getElementById('import-input');
-    importInput.addEventListener('change', function(e) {
-        let file = importInput.files[0];
-        if (file.type.match('application\/json')) {
+    let form = document.getElementById('form-container');
+    
+    // show the import form, hide all options
+    form.classList.toggle('hidden');
+    document.getElementById('options').classList.add('hidden');
 
-            let reader = new FileReader();
-
-            reader.onload = function(e) {
-                let contentAsJSON = JSON.parse(reader.result);
-                let open_tabs = confirm(`Found ${contentAsJSON.links.length} links to be opened. Proceed?`);
-                if (open_tabs) {
-                    openLinksInTabs(contentAsJSON.links, function() {
-                        chrome.notifications.create({
-                            type: 'basic',
-                            iconUrl: 'icons/tabs_export16.png',
-                            title: 'TabsExport',
-                            message: `Successfully imported ${contentAsJSON.links.length} links!`
-                        });
-                    });
-                }
-            }
-
-            reader.readAsText(file);
-            
-        } else {
-            alert('Unsupported file')
-        }
+    document.getElementById('import-button').addEventListener('click', function() {
+        getAllLinksCurrentlyOpened(function(data) {
+            let input = JSON.parse(document.getElementById('links-box').value);
+            chrome.runtime.sendMessage({taskName: 'importJSON', links: input.links});
+        });
     });
-    importInput.click();
+
+    document.getElementById('back-import').addEventListener('click', function(e) {
+        // e.stopPropagation();
+        document.getElementById('import-form').classList.toggle('hidden');
+        document.getElementById('options').classList.remove('hidden');
+    });
 }
+
 
 function getAllLinksCurrentlyOpened(callback) {
     let result = {links: []};
@@ -97,14 +88,5 @@ function copyToClipBoard(links, callback) {
     copyArea.select();
     document.execCommand('copy');
     document.body.removeChild(copyArea);
-    callback();
-}
-
-function openLinksInTabs(links, callback) {
-    chrome.windows.create({
-        url: links.map(function(link) {
-            return link.url;
-        })
-    });
     callback();
 }
