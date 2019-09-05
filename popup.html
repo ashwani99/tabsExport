@@ -14,7 +14,7 @@
             text-align: center;
         }
 
-        .btn {
+        button {
             color: #fff !important;
             text-transform: uppercase;
             text-decoration: none;
@@ -29,11 +29,11 @@
             margin-bottom: 5px;
         }
 
-        .btn:last-child {
+        button:last-child {
             margin-bottom: 0;
         }
 
-        .btn:hover {
+        button:hover {
             background: #ed3330;
             letter-spacing: 1px;
             -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
@@ -51,13 +51,13 @@
 <body>
     <div class="container">
         <div id="options">
-            <button id="export-json-btn" class="btn">
+            <button id="export-json-btn">
                 Export as JSON
             </button>
-            <button id="copy-clipboard-btn" class="btn">
+            <button id="copy-clipboard-btn">
                 Copy to Clipboard
             </button>
-            <button id="import-json-btn" class="btn">
+            <button id="import-json-btn">
                 Import tabs
             </button>
         </div>
@@ -65,8 +65,8 @@
         <div id="form-container" class="hidden">
             <form id="import-form">
                 <textarea id="links-box" placeholder="Put your JSON here" cols="30" rows="10"></textarea>
-                <button id="import-button" class="btn">Open Tabs</button>
-                <button id="back-import" class="btn">Back</button>
+                <button id="import-button">Open Tabs</button>
+                <button id="back-import">Back</button>
             </form>
         </div>
     </div>
